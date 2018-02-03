@@ -12,8 +12,8 @@ import MG2D.*;
 
 public class Graphique {
 
-    private final Fenetre f;
-    //private final FenetrePleinEcran f;
+    //private final Fenetre f;
+    private final FenetrePleinEcran f;
     private int TAILLEX;
     private int TAILLEY;
     private int i;
@@ -42,8 +42,8 @@ public class Graphique {
 	    System.err.println(e.getMessage());
 	}
 
-	f = new Fenetre("_Menu Borne D'arcade_",TAILLEX,TAILLEY);
-	//f = new FenetrePleinEcran("_Menu Borne D'arcade_");
+	//f = new Fenetre("_Menu Borne D'arcade_",TAILLEX,TAILLEY);
+	f = new FenetrePleinEcran("_Menu Borne D'arcade_");
 	f.setVisible(true);
 	clavier = new ClavierBorneArcade();
 	f.addKeyListener(clavier);

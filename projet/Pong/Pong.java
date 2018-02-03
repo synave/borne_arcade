@@ -1,4 +1,4 @@
-import MG2D.Fenetre;
+import MG2D.*;
 
 import MG2D.geometrie.Cercle;
 import MG2D.geometrie.Point;
@@ -32,8 +32,8 @@ public class Pong {
     //ATTRIBUTS	
     private int vitesseBalle;
     
-    //private FenetrePleinEcran f;
-    private Fenetre f;
+    private FenetrePleinEcran f;
+    //private Fenetre f;
     private ClavierBorneArcade clavier;
 
     private Point centreBalle;
@@ -62,8 +62,8 @@ public class Pong {
     //CONSTRUCTEUR
     public Pong(){
 	
-	//f = new FenetrePleinEcran ( "Mon premier Pong");
-	f = new Fenetre ( "Mon premier Pong",largeur,hauteur);
+	f = new FenetrePleinEcran ( "Mon premier Pong");
+	//f = new Fenetre ( "Mon premier Pong",largeur,hauteur);
 
 
 	//device.setFullScreenWindow(f);

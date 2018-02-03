@@ -1,5 +1,4 @@
-import MG2D.Fenetre;
-import MG2D.Clavier;
+import MG2D.*;
 
 import MG2D.geometrie.Cercle;
 import MG2D.geometrie.Point;
@@ -20,8 +19,8 @@ public class Kowasu_Renga {
     final static int largeur = 1280;
     final static int hauteur = 1024;
 	
-    //static FenetrePleinEcran f = new FenetrePleinEcran ("Kowasu Renga");
-    static Fenetre f = new Fenetre ("Kowasu Renga",largeur,hauteur);
+    static FenetrePleinEcran f = new FenetrePleinEcran ("Kowasu Renga");
+    //static Fenetre f = new Fenetre ("Kowasu Renga",largeur,hauteur);
     
 
     private static Point a = new Point ( ( largeur / 2 ) - 40, 50);

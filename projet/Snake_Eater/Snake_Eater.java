@@ -1,5 +1,4 @@
-import MG2D.Fenetre;
-import MG2D.Clavier;
+import MG2D.*;
 import MG2D.geometrie.*;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -12,8 +11,8 @@ public class Snake_Eater {
 
     final static int largeur = 1280;
     final static int hauteur = 1024;
-    static Fenetre f = new Fenetre ( "Snake Eater | 0 pomme",largeur, hauteur);
-    //static FenetrePleinEcran f = new Fenetre ( "Snake Eater | 0 pomme");
+    //static Fenetre f = new Fenetre ( "Snake Eater | 0 pomme",largeur, hauteur);
+    static FenetrePleinEcran f = new FenetrePleinEcran ( "Snake Eater | 0 pomme");
 
     private static ClavierBorneArcade clavier;
     // Géometrie //

@@ -28,8 +28,8 @@ class Jeu{
     private ArrayList<Bonus> tabBonus;//Tableau pour les bonus
     private ArrayList<Texture> tabAnimationIntersection;//Tableau pour les intersections tir joueur/ennemi
 
-    private Fenetre fen;
-    //private FenetrePleinEcran fen;
+    //private Fenetre fen;
+    private FenetrePleinEcran fen;
     private ClavierBorneArcade cla;
     private int score;
     //private Texture scoreAffichage[];
@@ -58,8 +58,8 @@ class Jeu{
 	tabBonus = new ArrayList<Bonus>();
 	tabAnimationIntersection = new ArrayList<Texture>();
 
-	fen = new Fenetre("JAVA SPACE", 1280, 1024);
-	//fen = new Fenetre("JAVA SPACE");
+	//fen = new Fenetre("JAVA SPACE", 1280, 1024);
+	fen = new FenetrePleinEcran("JAVA SPACE");
 
 	cla = new ClavierBorneArcade();
 	fen.addKeyListener(cla);
