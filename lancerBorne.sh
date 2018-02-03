@@ -1,8 +1,13 @@
 #!/bin/bash
 
-setxkbmap bo
+touch /home/pi/git/borne_arcade/fichierTest
+echo "blop" > /home/pi/git/borne_arcade/fichierTest
 
-./clean.sh
-./compilation.sh
+#setxkbmap bo
 
-java Main
+#cd /home/pi/git/borne_arcade
+#./clean.sh
+#./compilation.sh
+
+#java Main
+#*/
