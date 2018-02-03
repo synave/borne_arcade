@@ -3,7 +3,7 @@ xkb_symbols "basic" {
 
     include "latin"
 
-    name[Group1]="French";
+    name[Group1]="French Borne";
 
     key <AE01>	{ [         f,  ampersand,  onesuperior,   exclamdown ]	};
     key <AE02>	{ [         g,     eacute,   asciitilde,    oneeighth ]	};

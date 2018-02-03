@@ -1,7 +1,5 @@
 #!/bin/bash
 
-setxkbmap bo
-
 cd /home/pi/git/borne_arcade
 ./clean.sh
 ./compilation.sh
