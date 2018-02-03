@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/remi/git/borne_arcade
+cd /home/pi/git/borne_arcade
 echo "nettoyage des répertoires"
 echo "Veuillez patienter"
 ./clean.sh
