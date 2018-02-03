@@ -1,13 +1,10 @@
 #!/bin/bash
 
-touch /home/pi/git/borne_arcade/fichierTest
-echo "blop" > /home/pi/git/borne_arcade/fichierTest
+setxkbmap bo
 
-#setxkbmap bo
+cd /home/pi/git/borne_arcade
+./clean.sh
+./compilation.sh
 
-#cd /home/pi/git/borne_arcade
-#./clean.sh
-#./compilation.sh
+java -cp .:/home/pi/git/MG2D Main
 
-#java Main
-#*/

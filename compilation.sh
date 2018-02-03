@@ -1,13 +1,13 @@
 #!/bin/bash
 
-javac *.java
+javac -cp .:/home/pi/git/MG2D *.java
 
 cd projet
 
 for i in *
 do
     cd $i
-    javac -cp $CLASSPATH:../.. *.java
+    javac -cp .:../..:/home/pi/git/MG2D *.java
     cd ..
 done
 
