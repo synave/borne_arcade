@@ -15,12 +15,13 @@ public class Kowasu_Renga {
     // Attributs //
 	
 
-	static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
-	
-	final static int largeur = 1280;
+    //static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
+    
+    final static int largeur = 1280;
     final static int hauteur = 1024;
 	
-    static Fenetre f = new Fenetre ("Kowasu Renga");
+    //static FenetrePleinEcran f = new FenetrePleinEcran ("Kowasu Renga");
+    static Fenetre f = new Fenetre ("Kowasu Renga",largeur,hauteur);
     
 
     private static Point a = new Point ( ( largeur / 2 ) - 40, 50);
@@ -47,7 +48,7 @@ public class Kowasu_Renga {
 	
     public static void main ( String [] args ) {
 	
-	device.setFullScreenWindow(f);
+	
 	f.setVisible(true);
 	
 	
@@ -138,7 +139,7 @@ public class Kowasu_Renga {
 		    if ( dx == 0 && dy == 0 )
 			balle.translater(-10,0);
 
-		    joueur.translater(-10,0);
+		    joueur.translater(-5,0);
 		}
 	    }
 			
@@ -149,7 +150,7 @@ public class Kowasu_Renga {
 		    if ( dx == 0 && dy == 0 )
 			balle.translater(10,0);
 					
-		    joueur.translater(10,0);
+		    joueur.translater(5,0);
 		}
 	    }
 		

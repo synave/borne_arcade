@@ -91,7 +91,7 @@ public class Serpent {
 	  }
 
     public void mouvement ( Clavier c ) {
-			System.out.println("tete: "+tete.getA().getX());
+	//System.out.println("tete: "+tete.getA().getX());
 				if ( c.getDroiteTape() ) {
 				    x = -1;
 				    y = 0;

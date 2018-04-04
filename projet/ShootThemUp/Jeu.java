@@ -19,7 +19,7 @@ class Jeu{
     private Texture fond1;
     private Texture fond2;
     private Rectangle barreNoir;
-	private Font font;
+    private Font font;
 
 
     private ArrayList<Ennemi> tabEnn;//Tableau pour les ennemis
@@ -29,6 +29,7 @@ class Jeu{
     private ArrayList<Texture> tabAnimationIntersection;//Tableau pour les intersections tir joueur/ennemi
 
     private Fenetre fen;
+    //private FenetrePleinEcran fen;
     private Clavier cla;
     private int score;
     //private Texture scoreAffichage[];
@@ -37,18 +38,16 @@ class Jeu{
     private Texte affichageNombreVieJoueur;
     private Random r;
 	
-	//fullscreen
-	static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
 
-	/* Constructeur */
+    /* Constructeur */
     public Jeu(){
 	font = null;
-		try{
-			File in = new File("font.ttf");
-			font = font.createFont(Font.TRUETYPE_FONT, in);
-			font = font.deriveFont(32.0f);
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
+	try{
+	    File in = new File("font.ttf");
+	    font = font.createFont(Font.TRUETYPE_FONT, in);
+	    font = font.deriveFont(32.0f);
+	}catch (Exception e) {
+	    System.out.println(e.getMessage());
 	}
 	
 	
@@ -59,9 +58,9 @@ class Jeu{
 	tabBonus = new ArrayList<Bonus>();
 	tabAnimationIntersection = new ArrayList<Texture>();
 
-	fen = new Fenetre("JAVA SPACE");
-	//fullscreen
-	device.setFullScreenWindow(fen);
+	fen = new Fenetre("JAVA SPACE", 1280, 1024);
+	//fen = new Fenetre("JAVA SPACE");
+	
 	fen.setVisible(true);
     
 	fen.setAffichageFPS(true);
@@ -83,19 +82,19 @@ class Jeu{
 	fen.ajouter(scoreAffichage);
 	
 	/*scoreAffichage=new Texture[9];//Tableau pour l'affichage du score 
-	scoreAffichage[0]=new Texture("./img/score/0.png", new Point(10,691));
-	scoreAffichage[1]=new Texture("./img/score/0.png", new Point(42,691));
-	scoreAffichage[2]=new Texture("./img/score/0.png", new Point(74,691));
-	scoreAffichage[3]=new Texture("./img/score/0.png", new Point(106,691));
-	scoreAffichage[4]=new Texture("./img/score/0.png", new Point(138,691));
-	scoreAffichage[5]=new Texture("./img/score/0.png", new Point(170,691));
-	scoreAffichage[6]=new Texture("./img/score/0.png", new Point(202,691));
-	scoreAffichage[7]=new Texture("./img/score/0.png", new Point(234,691));
-	scoreAffichage[8]=new Texture("./img/score/0.png", new Point(266,691));*/
+	  scoreAffichage[0]=new Texture("./img/score/0.png", new Point(10,691));
+	  scoreAffichage[1]=new Texture("./img/score/0.png", new Point(42,691));
+	  scoreAffichage[2]=new Texture("./img/score/0.png", new Point(74,691));
+	  scoreAffichage[3]=new Texture("./img/score/0.png", new Point(106,691));
+	  scoreAffichage[4]=new Texture("./img/score/0.png", new Point(138,691));
+	  scoreAffichage[5]=new Texture("./img/score/0.png", new Point(170,691));
+	  scoreAffichage[6]=new Texture("./img/score/0.png", new Point(202,691));
+	  scoreAffichage[7]=new Texture("./img/score/0.png", new Point(234,691));
+	  scoreAffichage[8]=new Texture("./img/score/0.png", new Point(266,691));*/
 
 	/*for(int i=0; i < scoreAffichage.length; i++){
-	    fen.ajouter(scoreAffichage[i]);	
-	    }*/
+	  fen.ajouter(scoreAffichage[i]);	
+	  }*/
 	
 	Texture hudVaisseau;
 	hudVaisseau=new Texture("./img/life/1.png", new Point(1151, 892));
@@ -127,12 +126,12 @@ class Jeu{
 	/*-----TRANSLATION_DES_FONDS----*/
 	if(fond1.getB().getX()<=0){
 	    fond1.translater(2560,0);
-    }else if(fond2.getB().getX()<=0){
+	}else if(fond2.getB().getX()<=0){
 	    fond2.translater(2560,0);
 	}
 	else{
-		fond1.translater(-1,0);
-		fond2.translater(-1,0);
+	    fond1.translater(-1,0);
+	    fond2.translater(-1,0);
 	}
 
 	/*-------------------------*/
@@ -200,7 +199,7 @@ class Jeu{
 	    jou.setTempBonus(jou.getTempBonus()-1);
 	}
 	if(jou.getTempBonus()==0 && jou.getTir()>0){
-	   jou.setTir(0);
+	    jou.setTir(0);
 	}
 
 	/*-----DEPLACEMENT_JOUEUR-----*/
@@ -219,7 +218,7 @@ class Jeu{
 	
 	/*-----TRANSLATION_TIR_ENNEMIE-----*/
 	for(int i=tabTirEnn.size()-1; i>=0; i--){
-	     switch(tabTirEnn.get(i).getOrientation())//TRANSLATION EN FONCTION DE L'ORIENATION DU TIR
+	    switch(tabTirEnn.get(i).getOrientation())//TRANSLATION EN FONCTION DE L'ORIENATION DU TIR
 		{
 		case "centre"://TIR DROIT
 		    tabTirEnn.get(i).getTex().translater(-1*tabTirEnn.get(i).getVit(),0);
@@ -245,43 +244,43 @@ class Jeu{
 	    if(randomTirEnn==1){//RANDOM SI =1 ALORS L'ENNEMIE TIR
 		randomTirEnn = r.nextInt(4);//CHOIX DU TIR
 		switch(randomTirEnn)
-		{
-		case 1: //TIR DOUBLE
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-23)),1,20,"centre"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+10)),1,20,"centre"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    break;
-		case 2: //TIR TRIPLE
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-19)),1,20,"centre"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+10)),1,20,"centre"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
-		    tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    break;
-		case 3: //TIR EVENTAIL
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-39)),1,20,"gauche"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+30)),1,20,"droite"));
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
-		    tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		    break;
+		    {
+		    case 1: //TIR DOUBLE
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-23)),1,20,"centre"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+10)),1,20,"centre"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			break;
+		    case 2: //TIR TRIPLE
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-19)),1,20,"centre"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+10)),1,20,"centre"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
+			tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			break;
+		    case 3: //TIR EVENTAIL
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-39)),1,20,"gauche"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getA().getY()+30)),1,20,"droite"));
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
+			tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+			break;
 
-		default: //TIR PAR DEFAUT
-		    tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
-		    tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
-		    fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
-		}
+		    default: //TIR PAR DEFAUT
+			tabTirEnn.add(new Tir(new Texture("./img/laser/ennemie1/1.png", new Point(tabEnn.get(i).getTex().getB().getX(),tabEnn.get(i).getTex().getB().getY()-(jou.getTex().getHauteur()/2))),1,20,"centre"));
+			tabTirEnn.get(tabTirEnn.size()-1).getTex().translater(0,-tabTirEnn.get(tabTirEnn.size()-1).getTex().getHauteur()/2);
+			fen.ajouter(tabTirEnn.get(tabTirEnn.size()-1).getTex());
+		    }
 	    }
 	}
 
 	/*-----TRANSLATION_TIR_JOUEUR-----*/
 	for(int i=tabTirJou.size()-1; i>=0; i--){
-	     switch(tabTirJou.get(i).getOrientation())//TRANSLATION EN FONCTION DE L'o
+	    switch(tabTirJou.get(i).getOrientation())//TRANSLATION EN FONCTION DE L'o
 		{
 		case "centre"://TIR DROIT
 		    tabTirJou.get(i).getTex().translater(1*tabTirJou.get(i).getVit(),0);
@@ -462,14 +461,14 @@ class Jeu{
 	/*-----MISE_A_JOUR_AFFICHAGE _SCORE-----*/
 	scoreAffichage.setTexte(""+score);
 	/*int s=score;
-	int i = 8;
+	  int i = 8;
 					
-	while(s!=0){				
-	    int mod=s%10;
-	    s/=10;				
-	    scoreAffichage[i].setImg("./img/score/"+mod+".png");
-	    i--;
-	    }*/
+	  while(s!=0){				
+	  int mod=s%10;
+	  s/=10;				
+	  scoreAffichage[i].setImg("./img/score/"+mod+".png");
+	  i--;
+	  }*/
 
 
 	fen.rafraichir();

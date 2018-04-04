@@ -20,14 +20,14 @@ class Main{
 	    fin = new Date().getTime();
 	    diff=fin-debut;
 	    /*if((tpsAttente-diff)>=0)
-		str=str+" - "+(tpsAttente-diff);
-	    else
-	    str=str+" - ***"+(tpsAttente-diff);*/
+	      str=str+" - "+(tpsAttente-diff);
+	      else
+	      str=str+" - ***"+(tpsAttente-diff);*/
 	    if(diff>tpsAttente)
 		diff=tpsAttente;
 	}
 	try{
-		Thread.sleep(5000);
+	    Thread.sleep(5000);
 	}catch(Exception e){e.getMessage();}
 	System.exit(5);
 	//System.out.println(str);

@@ -7,12 +7,13 @@ import java.awt.Font;
 
 public class Snake_Eater {
 
-	static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
+    
     // Attributs //
 
     final static int largeur = 1280;
     final static int hauteur = 1024;
-    static Fenetre f = new Fenetre ( "Snake Eater | 0 pomme");
+    static Fenetre f = new Fenetre ( "Snake Eater | 0 pomme",largeur, hauteur);
+    //static FenetrePleinEcran f = new Fenetre ( "Snake Eater | 0 pomme");
     //private static Clavier clavier = new Clavier ();
     private static Clavier clavier;
     // Géometrie //
@@ -49,27 +50,26 @@ public class Snake_Eater {
     // Main //
     public static void main ( String [] args ) {
 
-	device.setFullScreenWindow(f);
 	f.setVisible(true);
   	
   	f.addKeyListener ( clavier );
   	clavier = f.getClavier();
   	f.setBackground ( Couleur.NOIR );
   	f.ajouter ( background );
-    f.ajouter( haut );
-    f.ajouter( gauche );
-    f.ajouter( droite );
-    f.ajouter( bas );
+	f.ajouter( haut );
+	f.ajouter( gauche );
+	f.ajouter( droite );
+	f.ajouter( bas );
   	Serpent s = new Serpent ( f, joueur );
   	Nourriture n = new Nourriture ( f );
   	int vitesse = 60;
   	int compteur = 0;
   	while ( s.getJouer() ) {
 	    try {
-		    Thread.sleep ( vitesse );
+		Thread.sleep ( vitesse );
 	    }
 	    catch ( Exception e ) {
-		    System.out.println ( e );
+		System.out.println ( e );
 	    }
 	    s.mouvement ( clavier );
 	    s.intersection ( n.getPomme() );
@@ -82,11 +82,11 @@ public class Snake_Eater {
     		f.setTitle ("Snake Eater | " + s.getNb() + " pomme");
 
 	    else
-		     f.setTitle ("Snake Eater | " + s.getNb() + " pommes");
+		f.setTitle ("Snake Eater | " + s.getNb() + " pommes");
 
 	    f.rafraichir();
 	}
-  f.supprimer ( background );
+	f.supprimer ( background );
 	s.effacer();
 	n.effacer();
 	f.rafraichir();
@@ -112,10 +112,10 @@ public class Snake_Eater {
 	    commentaire.setTexte ( "Snake, tu va mourir !" );
 
 	f.ajouter ( commentaire );
-		try {
-			Thread.sleep(3000);
-			System.exit(5);
-		}catch(Exception e){e.getMessage();};
+	try {
+	    Thread.sleep(3000);
+	    System.exit(5);
+	}catch(Exception e){e.getMessage();};
     }
     
     

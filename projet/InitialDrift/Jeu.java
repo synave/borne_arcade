@@ -26,7 +26,7 @@ class Jeu{ // Définition de la classe
     Ennemi army,police,tonneau_ennemi;
     ArrayList<Ennemi> tabEnnemis;
     ArrayList<Texture> tabDecor,tabHerbe;
-    FenetrePleinEcran fen;
+    Fenetre fen;
     //FenetrePleinEcran fen;
     
     Point a; // utilisé pour la gen aléatoire d'ennemis
@@ -77,8 +77,8 @@ class Jeu{ // Définition de la classe
 	semaphoreS = 0;
 	semaphoreC = 0;
 	aff_score=new Texte(Couleur.BLEU,("Score : "+String.valueOf(score)),(new Font("Calibri", Font.BOLD, 24)),new Point(260,(TAILLEY-(TAILLEY-50))));
-	fen = new FenetrePleinEcran("Initial Drift");
-	//fen = new Fenetre("Initial Drift",TAILLEX,TAILLEY);
+	//fen = new FenetrePleinEcran("Initial Drift");
+	fen = new Fenetre("Initial Drift",TAILLEX,TAILLEY);
 	fen.setVisible(true);
 	fen.addKeyListener(clavier);
 	clavier = fen.getClavier();

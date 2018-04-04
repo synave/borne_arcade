@@ -4,20 +4,20 @@ import MG2D.geometrie.Texture;
 
 public class BoiteImage extends Boite{
 
-	Texture image;
+    Texture image;
 
-	BoiteImage(Rectangle rectangle, String image) {
-		super(rectangle);
-		this.image = new Texture(image+"/photo.png", new Point(760, 568));
-	}
+    BoiteImage(Rectangle rectangle, String image) {
+	super(rectangle);
+	this.image = new Texture(image+"/photo.png", new Point(760, 568));
+    }
 
-	public Texture getImage() {
-		return this.image;
-	}
+    public Texture getImage() {
+	return this.image;
+    }
 
-	public void setImage(String chemin) {
-		this.image.setImg(chemin+"/photo.png");
-		this.image.setTaille(400, 400);
-	}
+    public void setImage(String chemin) {
+	this.image.setImg(chemin+"/photo.png");
+	this.image.setTaille(400, 400);
+    }
 
 }
