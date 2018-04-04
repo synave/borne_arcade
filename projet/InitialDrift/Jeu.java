@@ -19,15 +19,16 @@ import java.awt.GraphicsEnvironment;
 
 class Jeu{ // Définition de la classe
 
-	static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
+    //static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
     
     ///////////////////////////////////// Attributs \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
     Joueur player1;
     Ennemi army,police,tonneau_ennemi;
     ArrayList<Ennemi> tabEnnemis;
     ArrayList<Texture> tabDecor,tabHerbe;
-    Fenetre fen;
- 
+    FenetrePleinEcran fen;
+    //FenetrePleinEcran fen;
+    
     Point a; // utilisé pour la gen aléatoire d'ennemis
     Point b; // utilisé pour la gen aléatoire de décore
 
@@ -76,8 +77,8 @@ class Jeu{ // Définition de la classe
 	semaphoreS = 0;
 	semaphoreC = 0;
 	aff_score=new Texte(Couleur.BLEU,("Score : "+String.valueOf(score)),(new Font("Calibri", Font.BOLD, 24)),new Point(260,(TAILLEY-(TAILLEY-50))));
-	fen = new Fenetre("Initial Drift");
-	device.setFullScreenWindow(fen);
+	fen = new FenetrePleinEcran("Initial Drift");
+	//fen = new Fenetre("Initial Drift",TAILLEX,TAILLEY);
 	fen.setVisible(true);
 	fen.addKeyListener(clavier);
 	clavier = fen.getClavier();
@@ -334,7 +335,7 @@ class Jeu{ // Définition de la classe
 	        player1.getTextureJoueur().translater(0,dy);
 	    }     
 	if(clavier.getA()){
-		System.exit(5);
+	    System.exit(5);
 	}  
 	//fen.rafraichir();
 	
@@ -350,18 +351,18 @@ class Jeu{ // Définition de la classe
 
 	    // On evite que les ennemis se roulent l'un sur l'autre (celui de derrière prend la vitesse de celui de devant ) 
 	    for(int ind2=0;ind2<(tabEnnemis.size()-1);ind2++){
-			if(tabEnnemis.get(ind).intersection(tabEnnemis.get(ind2))){
-				tabEnnemis.get(ind).setVitesse(tabEnnemis.get(ind2).getVitesse());
-			}
+		if(tabEnnemis.get(ind).intersection(tabEnnemis.get(ind2))){
+		    tabEnnemis.get(ind).setVitesse(tabEnnemis.get(ind2).getVitesse());
+		}
 	    }
 	    
 	    
 	    //Suppression des ennemis qui sont sortis de la fenetre
 	    if(tabEnnemis.get(ind).getTextureEnnemi().getB().getY() <= 0){  // Si l'ennemi sort de l'écran alors
-			fen.supprimer(tabEnnemis.get(ind).getTextureEnnemi());    // On le supprime de la fenetre	
-			tabEnnemis.remove(ind);                                 // On le supprime de l'array list
-			score++;
-			aff_score.setTexte(("Score :"+String.valueOf(score)));      //Gére l'affichage du score
+		fen.supprimer(tabEnnemis.get(ind).getTextureEnnemi());    // On le supprime de la fenetre	
+		tabEnnemis.remove(ind);                                 // On le supprime de l'array list
+		score++;
+		aff_score.setTexte(("Score :"+String.valueOf(score)));      //Gére l'affichage du score
 	    }
 
 	}
@@ -371,8 +372,8 @@ class Jeu{ // Définition de la classe
 	    tabDecor.get(indd).translater(0,(-3+score*(-1)));
 	    //Suppression décor sorti de la fenetre
 	    if(tabDecor.get(indd).getB().getY() <=0){
-			fen.supprimer(tabDecor.get(indd));
-			tabDecor.remove(indd);
+		fen.supprimer(tabDecor.get(indd));
+		tabDecor.remove(indd);
 	    }
 	   
 	}  
@@ -430,8 +431,8 @@ class Jeu{ // Définition de la classe
 	    break;	
 	    
 	case 6:
-		a.setX(855);
-		break;
+	    a.setX(855);
+	    break;
 	}
 
 	
