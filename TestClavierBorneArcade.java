@@ -1,6 +1,13 @@
 import MG2D.*;
 import MG2D.geometrie.*;
 
+/***************************************************************************************/
+/* Les joysticks et boutons pour la borne d'arcade correspondent :                     */
+/* Pour le Joueur 1 : flèches haut/bas/gauche/droite et les touches f, g, h, r, t et y */
+/* Pour le joueur 2 : o, k, l et m puis les touches q, s, d, a, z et e                 */
+/***************************************************************************************/
+
+
 class TestClavierBorneArcade{
 
     public static void main(String[] args){
