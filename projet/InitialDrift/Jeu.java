@@ -32,7 +32,7 @@ class Jeu{ // Définition de la classe
     Point a; // utilisé pour la gen aléatoire d'ennemis
     Point b; // utilisé pour la gen aléatoire de décore
 
-    Clavier clavier;
+    ClavierBorneArcade clavier;
     int score;
     int random;
     int random_position;
@@ -80,8 +80,10 @@ class Jeu{ // Définition de la classe
 	//fen = new FenetrePleinEcran("Initial Drift");
 	fen = new Fenetre("Initial Drift",TAILLEX,TAILLEY);
 	fen.setVisible(true);
+	clavier = new ClavierBorneArcade();
+
 	fen.addKeyListener(clavier);
-	clavier = fen.getClavier();
+	//clavier = fen.getClavier();
 
 	
 	//Mise en place de la texture de fond
@@ -176,25 +178,25 @@ class Jeu{ // Définition de la classe
 	fen.ajouter(accueil);
     
 	    
-	while(clavier.getE() == false){
+	while(clavier.getBoutonJ1ATape() == false){
 
 	    fen.rafraichir();
 
-	    if(clavier.getA() == true){ // commandes
+	    if(clavier.getBoutonJ1BTape() == true){ // commandes
 		semaphoreC++;
 		if(semaphoreC<2){ // le semaphore sert à eviter 5 millions de créations de texture si la touche reste enfoncée
 		    commandes = new Texture("decor/commandes.png",new Point(0,0),TAILLEX,TAILLEY);
 		    fen.ajouter(commandes);
 		}
 	    }
-	    if(clavier.getZ() == true){
+	    if(clavier.getBoutonJ1CTape() == true){
 		semaphoreS++;
 		if(semaphoreS<2){ // Pareil ici
 		    scenario = new Texture("decor/scenario.jpg",new Point(0,0),TAILLEX,TAILLEY);
 		    fen.ajouter(scenario);
 		}
 	    }
-	    if(clavier.getQ() == true){
+	    if(clavier.getBoutonJ1ZTape() == true){
 		semaphoreS = 0;
 		semaphoreC = 0;
 		fen.supprimer(commandes);
@@ -314,27 +316,27 @@ class Jeu{ // Définition de la classe
 	catch(Exception e){}
 		
 	//Déplacement Joueur
-	if (( clavier.getGaucheEnfoncee() == true )&(player1.getTextureJoueur().getB().getX() < TAILLEX-326))
+	if (( clavier.getJoyJ1DroiteEnfoncee() == true )&(player1.getTextureJoueur().getB().getX() < TAILLEX-326))
 	    {
 		dx = (int)(score*0.1+15);
 	        player1.getTextureJoueur().translater(dx,0);
 	    }
-	if (( clavier.getDroiteEnfoncee() == true )&(player1.getTextureJoueur().getB().getX() > TAILLEX-870 ))
+	if (( clavier.getJoyJ1GaucheEnfoncee() == true )&(player1.getTextureJoueur().getB().getX() > TAILLEX-870 ))
 	    {
 		dx = -(int)(score*0.1+15);
 		player1.getTextureJoueur().translater(dx,0);
 	    }
-	if (( clavier.getBasEnfoncee() == true )&(player1.getTextureJoueur().getA().getY() < TAILLEY-120 ))
+	if (( clavier.getJoyJ1HautEnfoncee() == true )&(player1.getTextureJoueur().getA().getY() < TAILLEY-120 ))
 	    {
 		dy = (int)(score*0.1+15);
 	        player1.getTextureJoueur().translater(0,dy);
 	    }
-	if (( clavier.getHautEnfoncee() == true )&(player1.getTextureJoueur().getA().getY() > 0 ))
+	if (( clavier.getJoyJ1BasEnfoncee() == true )&(player1.getTextureJoueur().getA().getY() > 0 ))
 	    {
 		dy = - (int)(score*0.1+15);
 	        player1.getTextureJoueur().translater(0,dy);
 	    }     
-	if(clavier.getA()){
+	if(clavier.getBoutonJ1ZTape()){
 	    System.exit(5);
 	}  
 	//fen.rafraichir();

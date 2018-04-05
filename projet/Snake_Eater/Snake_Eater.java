@@ -14,8 +14,8 @@ public class Snake_Eater {
     final static int hauteur = 1024;
     static Fenetre f = new Fenetre ( "Snake Eater | 0 pomme",largeur, hauteur);
     //static FenetrePleinEcran f = new Fenetre ( "Snake Eater | 0 pomme");
-    //private static Clavier clavier = new Clavier ();
-    private static Clavier clavier;
+
+    private static ClavierBorneArcade clavier;
     // Géometrie //
     private static Texture background = new Texture ( "img/background.jpg", new Point ( 0, 0 ), 1280 , 1024 );
     private static Point a = new Point ( 400, 300 );
@@ -51,9 +51,9 @@ public class Snake_Eater {
     public static void main ( String [] args ) {
 
 	f.setVisible(true);
-  	
+  	clavier = new ClavierBorneArcade();
   	f.addKeyListener ( clavier );
-  	clavier = f.getClavier();
+  	
   	f.setBackground ( Couleur.NOIR );
   	f.ajouter ( background );
 	f.ajouter( haut );

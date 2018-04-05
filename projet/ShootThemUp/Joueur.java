@@ -117,20 +117,20 @@ class Joueur{
 	return tex.intersection(b.getTex());
     }
 
-    public void bougerJoueur(Clavier cla, int xMin, int xMax, int yMin, int yMax, int xDecalage, int yDecalage, int largeurJoueur, int hauteurJoueur){ // Méthode afin de bouger un joueur sur une fenètre
-	if((cla.getMEnfoncee()||cla.getDroiteEnfoncee()) && tex.getB().getX()>(largeurJoueur+5)){ // Déplacement vers la gauche avec limite de la bordure
+    public void bougerJoueur(ClavierBorneArcade cla, int xMin, int xMax, int yMin, int yMax, int xDecalage, int yDecalage, int largeurJoueur, int hauteurJoueur){ // Méthode afin de bouger un joueur sur une fenètre
+	if(cla.getJoyJ1GaucheEnfoncee() && tex.getB().getX()>(largeurJoueur+5)){ // Déplacement vers la gauche avec limite de la bordure
 	    tex.translater(-xDecalage,0);
 	}
 
-	if((cla.getKEnfoncee()||cla.getGaucheEnfoncee()) && tex.getA().getX()<(xMax-largeurJoueur-5)){ // Déplacement vers la droite avec limite de la bordure
+	if(cla.getJoyJ1DroiteEnfoncee() && tex.getA().getX()<(xMax-largeurJoueur-5)){ // Déplacement vers la droite avec limite de la bordure
 	    tex.translater(+xDecalage,0);
 	}
 	
-	if((cla.getOEnfoncee()||cla.getHautEnfoncee()) && tex.getB().getY()>(hauteurJoueur+5)){ // Déplacement vers le bas avec limite de la bordure
+	if(cla.getJoyJ1BasEnfoncee() && tex.getB().getY()>(hauteurJoueur+5)){ // Déplacement vers le bas avec limite de la bordure
 	    tex.translater(0,-yDecalage);
 	}
 	
-	if((cla.getLEnfoncee()||cla.getBasEnfoncee()) && tex.getA().getY()<(yMax-hauteurJoueur-5)+152){ // Déplacement vers le haut et limite bordure haute
+	if(cla.getJoyJ1HautEnfoncee() && tex.getA().getY()<(yMax-hauteurJoueur-5)+152){ // Déplacement vers le haut et limite bordure haute
 	    tex.translater(0,+yDecalage);    
 	}
     }

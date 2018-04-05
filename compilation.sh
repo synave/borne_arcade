@@ -7,7 +7,7 @@ cd projet
 for i in *
 do
     cd $i
-    javac *.java
+    javac -cp $CLASSPATH:../.. *.java
     cd ..
 done
 

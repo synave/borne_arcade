@@ -90,25 +90,25 @@ public class Serpent {
 			}
 	  }
 
-    public void mouvement ( Clavier c ) {
+    public void mouvement ( ClavierBorneArcade c ) {
 	//System.out.println("tete: "+tete.getA().getX());
-				if ( c.getDroiteTape() ) {
+				if ( c.getJoyJ1GaucheTape() ) {
 				    x = -1;
 				    y = 0;
 				}
-				if ( c.getGaucheTape() ) {
+				if ( c.getJoyJ1DroiteTape() ) {
 				    x = 1;
 				    y = 0;
 				}
-				if ( c.getBasTape() ) {
+				if ( c.getJoyJ1HautTape() ) {
 				    x = 0;
 				    y = 1;
 				}
-				if ( c.getHautTape() ) {
+				if ( c.getJoyJ1BasTape() ) {
 				    x = 0;
 				    y = -1;
 				}
-			if ( c.getA() ) {
+			if ( c.getBoutonJ1ZTape() ) {
 			    System.exit(1);
 			}
 			// Mouvement du corps //

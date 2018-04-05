@@ -30,7 +30,7 @@ class Jeu{
 
     private Fenetre fen;
     //private FenetrePleinEcran fen;
-    private Clavier cla;
+    private ClavierBorneArcade cla;
     private int score;
     //private Texture scoreAffichage[];
     private Texte scoreAffichage;
@@ -60,12 +60,14 @@ class Jeu{
 
 	fen = new Fenetre("JAVA SPACE", 1280, 1024);
 	//fen = new Fenetre("JAVA SPACE");
+
+	cla = new ClavierBorneArcade();
+	fen.addKeyListener(cla);
 	
 	fen.setVisible(true);
     
 	fen.setAffichageFPS(true);
 	fen.setAffichageNbPrimitives(true);
-	cla = fen.getClavier();
 	
 	fond1 = new Texture("./img/background/1.png", new Point(0, 0), 1280, 1024);
 	fond2 = new Texture("./img/background/2.png", new Point(1280, 0), 1280, 1024);
@@ -323,7 +325,7 @@ class Jeu{
 	}
 
 	/*-----APPARITION_TIR_JOUEUR-----*/
-	if(cla.getAEnfoncee() && jou.getTempTir()==0){
+	if(cla.getBoutonJ1AEnfoncee() && jou.getTempTir()==0){
 	    switch(jou.getTir())//TIR EN FONCTION DU TIR DEFINI DANS LE JOUEUR
 		{
 		case 1: //TIR DOUBLE

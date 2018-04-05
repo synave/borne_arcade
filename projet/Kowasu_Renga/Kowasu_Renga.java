@@ -33,7 +33,7 @@ public class Kowasu_Renga {
     private static int dx = 0;
     private static int dy = 0;
 	
-    private static Clavier clavier = f.getClavier();
+    private static ClavierBorneArcade clavier;
 	
     // Géometrie //
 	
@@ -48,8 +48,9 @@ public class Kowasu_Renga {
 	
     public static void main ( String [] args ) {
 	
+	clavier = new ClavierBorneArcade();
+	f.addKeyListener(clavier);
 	
-	f.setVisible(true);
 	
 	
 	f.ajouter ( background );
@@ -123,32 +124,32 @@ public class Kowasu_Renga {
 		System.out.println ( e );
 	    }
 
-	    if( clavier.getETape() && dx==0 && dy==0) {
+	    if( clavier.getBoutonJ1ATape() && dx==0 && dy==0) {
 		dx = 1;
 		dy = 1;
 	    }
 
-	    if(clavier.getATape()){
+	    if(clavier.getBoutonJ1ZTape()){
 		System.exit(5);
 	    }
 			
-	    if ( clavier.getDroiteEnfoncee() ) {
+	    if ( clavier.getJoyJ1GaucheEnfoncee() ) {
 				
 		if ( joueur.getA().getX() > 0 ) {
 					
 		    if ( dx == 0 && dy == 0 )
-			balle.translater(-10,0);
+			balle.translater(-5,0);
 
 		    joueur.translater(-5,0);
 		}
 	    }
 			
-	    if ( clavier.getGaucheEnfoncee() ) {
+	    if ( clavier.getJoyJ1DroiteEnfoncee() ) {
 				
 		if ( joueur.getB().getX() < largeur ) {
 					
 		    if ( dx == 0 && dy == 0 )
-			balle.translater(10,0);
+			balle.translater(5,0);
 					
 		    joueur.translater(5,0);
 		}

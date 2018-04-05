@@ -14,10 +14,7 @@ class Main{
 	//attributs
 	int i42 = 0;
 	Jeu j = new Jeu();
-	Clavier cla = new Clavier();
-	    
-	j.getFenetre().addKeyListener(cla);
-	cla = j.getFenetre().getClavier();
+
 
 
 	// Jeu 
@@ -27,9 +24,9 @@ class Main{
 	    j.AvancerUnPasDeTemps();
 	    j.getFenetre().rafraichir();
 	    if(i42==15){
-			j.GenererDecor();
-			j.GenererEnnemi();
-			i42=0;
+		j.GenererDecor();
+		j.GenererEnnemi();
+		i42=0;
 	    }
 	    i42++;
 	    j.fin();
