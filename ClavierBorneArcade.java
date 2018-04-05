@@ -52,18 +52,18 @@ public class ClavierBorneArcade implements KeyListener {
     private boolean o;
     private boolean oTape;
     
-    private boolean numpad1;
-    private boolean numpad1Tape;
-    private boolean numpad2;
-    private boolean numpad2Tape;
-    private boolean numpad3;
-    private boolean numpad3Tape;
-    private boolean numpad4;
-    private boolean numpad4Tape;
-    private boolean numpad5;
-    private boolean numpad5Tape;
-    private boolean numpad6;
-    private boolean numpad6Tape;
+    private boolean f;
+    private boolean fTape;
+    private boolean g;
+    private boolean gTape;
+    private boolean h;
+    private boolean hTape;
+    private boolean r;
+    private boolean rTape;
+    private boolean t;
+    private boolean tTape;
+    private boolean y;
+    private boolean yTape;
    
 
     // Constructeur //
@@ -71,7 +71,7 @@ public class ClavierBorneArcade implements KeyListener {
     /**
      * Crée un clavier et initialise tous les attributs à faux pour touches relâchés.
      */
-    public Clavier () {
+    public ClavierBorneArcade () {
 
 	gauche = gaucheTape = droite = droiteTape = false;
 	haut = hautTape = bas = basTape = false;
@@ -79,8 +79,8 @@ public class ClavierBorneArcade implements KeyListener {
 
 	a = d = e = k = l = m = o = q = s = z = false;
 	aTape = dTape = eTape = kTape = lTape = mTape = oTape = qTape = sTape = zTape = false;
-	numpad1 = numpad2 = numpad3 = numpad4 = numpad5 = numpad6 = false;
-	numpad1Tape = numpad2Tape = numpad3Tape = numpad4Tape = numpad5Tape = numpad6Tape = false;
+	f = g = h = r = t = y = false;
+	fTape = gTape = hTape = rTape = tTape = yTape = false;
 	
     }
 
@@ -300,7 +300,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "k" est enfoncée ou non.
      * @return retourne la valeur du booléen correspondant à la touche "k" : vrai pour enfoncée, faux sinon.
      */
-    public boolean getJoyJ1GaucheEnfoncee () {
+    public boolean getJoyJ2GaucheEnfoncee () {
     	
 	return k;
     }
@@ -309,7 +309,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "k" a été appuyée puis relâchée.
      * @return retourne la valeur du booléen correspondant à la touche "k tapée" : vrai pour tapée, faux sinon.
      */
-    public boolean getJoyJ1GaucheTape () {
+    public boolean getJoyJ2GaucheTape () {
 	boolean aRetourner=kTape;
 	kTape=false;
 	return aRetourner;
@@ -320,7 +320,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "l" est enfoncée ou non.
      * @return retourne la valeur du booléen correspondant à la touche "l" : vrai pour enfoncée, faux sinon.
      */
-    public boolean getJoyJ1BasEnfoncee () {
+    public boolean getJoyJ2BasEnfoncee () {
 
 	return l;
     }
@@ -329,7 +329,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "l" a été appuyée puis relâchée.
      * @return retourne la valeur du booléen correspondant à la touche "l tapée" : vrai pour tapée, faux sinon.
      */
-    public boolean getJoyJ1BasTape () {
+    public boolean getJoyJ2BasTape () {
 	boolean aRetourner=lTape;
 	lTape=false;
 	return aRetourner;
@@ -339,7 +339,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "m" a été appuyée puis relâchée.
      * @return retourne la valeur du booléen correspondant à la touche "m tapée" : vrai pour tapée, faux sinon.
      */
-    public boolean getJoyJ1DroiteTape () {
+    public boolean getJoyJ2DroiteTape () {
 	boolean aRetourner=mTape;
 	mTape=false;
 	return aRetourner;
@@ -350,7 +350,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "m" est enfoncée ou non.
      * @return retourne la valeur du booléen correspondant à la touche "m" : vrai pour enfoncée, faux sinon.
      */
-    public boolean getJoyJ1DroiteEnfoncee () {
+    public boolean getJoyJ2DroiteEnfoncee () {
 
 	return m;
     }
@@ -362,7 +362,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "o" est enfoncée ou non.
      * @return retourne la valeur du booléen correspondant à la touche "o" : vrai pour enfoncée, faux sinon.
      */
-    public boolean getJoyJ1HautEnfoncee () {
+    public boolean getJoyJ2HautEnfoncee () {
 
 	return o;
     }
@@ -371,7 +371,7 @@ public class ClavierBorneArcade implements KeyListener {
      * Permet de savoir si la touche "o" a été appuyée puis relâchée.
      * @return retourne la valeur du booléen correspondant à la touche "o tapée" : vrai pour tapée, faux sinon.
      */
-    public boolean getJoyJ1HautTape () {
+    public boolean getJoyJ2HautTape () {
 	boolean aRetourner=oTape;
 	oTape=false;
 	return aRetourner;
@@ -380,123 +380,123 @@ public class ClavierBorneArcade implements KeyListener {
    
 
     /**
-     * Permet de savoir si la touche "numpad1" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad1 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "f" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "f tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1ATape () {
-	boolean aRetourner=numpad1Tape;
-	numpad1Tape=false;
+	boolean aRetourner=fTape;
+	fTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad1" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad1" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "f" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "f" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1AEnfoncee () {
     	
-	return numpad1;
+	return f;
     }
 
     /**
-     * Permet de savoir si la touche "numpad2" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad2 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "g" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "g tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1BTape () {
-	boolean aRetourner=numpad2Tape;
-	numpad2Tape=false;
+	boolean aRetourner=gTape;
+	gTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad2" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad2" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "g" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "g" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1BEnfoncee () {
     	
-	return numpad2;
+	return g;
     }
 
     /**
-     * Permet de savoir si la touche "numpad3" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad3 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "h" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "h tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1CTape () {
-	boolean aRetourner=numpad3Tape;
-	numpad3Tape=false;
+	boolean aRetourner=hTape;
+	hTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad3" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad3" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "h" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "h" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1CEnfoncee () {
     	
-	return numpad3;
+	return h;
     }
 
     /**
-     * Permet de savoir si la touche "numpad4" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad4 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "r" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "r tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1XTape () {
-	boolean aRetourner=numpad4Tape;
-	numpad4Tape=false;
+	boolean aRetourner=rTape;
+	rTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad4" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad4" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "r" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "r" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1XEnfoncee () {
     	
-	return numpad4;
+	return r;
     }
 
     /**
-     * Permet de savoir si la touche "numpad5" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad5 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "t" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "t tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1YTape () {
-	boolean aRetourner=numpad5Tape;
-	numpad5Tape=false;
+	boolean aRetourner=tTape;
+	tTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad5" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad5" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "t" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "t" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1YEnfoncee () {
     	
-	return numpad5;
+	return t;
     }
 
     /**
-     * Permet de savoir si la touche "numpad6" a été appuyée puis relâchée.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad6 tapée" : vrai pour tapée, faux sinon.
+     * Permet de savoir si la touche "y" a été appuyée puis relâchée.
+     * @return retourne la valeur du booléen correspondant à la touche "y tapée" : vrai pour tapée, faux sinon.
      */
     public boolean getBoutonJ1ZTape () {
-	boolean aRetourner=numpad6Tape;
-	numpad6Tape=false;
+	boolean aRetourner=yTape;
+	yTape=false;
 	return aRetourner;
     }
 
 
     /**
-     * Permet de savoir si la touche "numpad6" est enfoncée ou non.
-     * @return retourne la valeur du booléen correspondant à la touche "numpad6" : vrai pour enfoncée, faux sinon.
+     * Permet de savoir si la touche "y" est enfoncée ou non.
+     * @return retourne la valeur du booléen correspondant à la touche "y" : vrai pour enfoncée, faux sinon.
      */
     public boolean getBoutonJ1ZEnfoncee () {
     	
-	return numpad6;
+	return y;
     }
 
       
@@ -514,8 +514,8 @@ public class ClavierBorneArcade implements KeyListener {
 
 	a = d = e = k = l = m = o = q = s = z = false;
 	aTape = dTape = eTape = kTape = lTape = mTape = oTape = qTape = sTape = zTape = false;
-	numpad1 = numpad2 = numpad3 = numpad4 = numpad5 = numpad6 = false;
-	numpad1Tape = numpad2Tape = numpad3Tape = numpad4Tape = numpad5Tape = numpad6Tape = false;
+	f = g = h = r = t = y = false;
+	fTape = gTape = hTape = rTape = tTape = yTape = false;
 	
     }
 
@@ -535,34 +535,34 @@ public class ClavierBorneArcade implements KeyListener {
 
 	switch (key.getKeyCode()) {
 
-	case KeyEvent.VK_NUMPAD1:
-	    numpad1 = false;
-	    numpad1Tape = true;
+	case KeyEvent.VK_F:
+	    f = false;
+	    fTape = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD2:
-	    numpad2 = false;
-	    numpad2Tape = true;
+	case KeyEvent.VK_G:
+	    g = false;
+	    gTape = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD3:
-	    numpad3 = false;
-	    numpad3Tape = true;
+	case KeyEvent.VK_H:
+	    h = false;
+	    hTape = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD4:
-	    numpad4 = false;
-	    numpad4Tape = true;
+	case KeyEvent.VK_R:
+	    r = false;
+	    rTape = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD5:
-	    numpad5 = false;
-	    numpad5Tape = true;
+	case KeyEvent.VK_T:
+	    t = false;
+	    tTape = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD6:
-	    numpad6 = false;
-	    numpad6Tape = true;
+	case KeyEvent.VK_Y:
+	    y = false;
+	    yTape = true;
 	    break;
 
 	case KeyEvent.VK_LEFT:
@@ -674,28 +674,28 @@ public class ClavierBorneArcade implements KeyListener {
 
 	switch (key.getKeyCode()) {
 
-	case KeyEvent.VK_NUMPAD1:
-	    numpad1 = true;
+	case KeyEvent.VK_F:
+	    f = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD2:
-	    numpad2 = true;
+	case KeyEvent.VK_G:
+	    g = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD3:
-	    numpad3 = true;
+	case KeyEvent.VK_H:
+	    h = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD4:
-	    numpad4 = true;
+	case KeyEvent.VK_R:
+	    r = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD5:
-	    numpad5 = true;
+	case KeyEvent.VK_T:
+	    t = true;
 	    break;
 
-	case KeyEvent.VK_NUMPAD6:
-	    numpad6 = true;
+	case KeyEvent.VK_Y:
+	    y = true;
 	    break;
 
 
