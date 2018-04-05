@@ -1,5 +1,4 @@
 import MG2D.Fenetre;
-import MG2D.Clavier;
 
 import MG2D.geometrie.Cercle;
 import MG2D.geometrie.Point;
@@ -29,12 +28,13 @@ public class Pong {
     private final int vitesseRaquette = 6;
     private final int vitesseBalleInitiale = 4;
 
+
     //ATTRIBUTS	
     private int vitesseBalle;
     
     //private FenetrePleinEcran f;
     private Fenetre f;
-    private Clavier clavier;
+    private ClavierBorneArcade clavier;
 
     private Point centreBalle;
     private Cercle balle;
@@ -70,7 +70,8 @@ public class Pong {
 	f.setVisible(true);
 
 
-	clavier = f.getClavier();
+	clavier = new ClavierBorneArcade();
+	f.addKeyListener(clavier);
 	       
 	f.ajouter ( new Rectangle(Couleur.NOIR, new Point(0,0), new Point(largeur, hauteur), true) );
 
@@ -95,9 +96,9 @@ public class Pong {
 
 	textureScoreG = new Texture("img/0.png", new Point(largeur/4,hauteur-50));
 	textureScoreD = new Texture("img/0.png", new Point(3*largeur/4,hauteur-50));
-	textureScoreG.setA(new Point(textureScoreG.getA().getX(),hauteur-epaisseurLigne-textureScoreG.getHauteur()));
+	textureScoreG.setA(new Point(textureScoreG.getA().getX(),hauteur-epaisseurLigne*2-textureScoreG.getHauteur()));
 		
-	textureScoreD.setA(new Point(textureScoreD.getA().getX(),hauteur-epaisseurLigne-textureScoreD.getHauteur()));
+	textureScoreD.setA(new Point(textureScoreD.getA().getX(),hauteur-epaisseurLigne*2-textureScoreD.getHauteur()));
 		
 	f.ajouter(textureScoreG);
 	f.ajouter(textureScoreD);
@@ -160,46 +161,37 @@ public class Pong {
 	    nbRebond = 0;
 	}	    
 
-	if(!demarrer && clavier.getZTape() && scoreG<9 && scoreD<9){
+	if(!demarrer && clavier.getBoutonJ1ATape() && scoreG<9 && scoreD<9){
 	    demarrer=true;
 	    dx=1;dy=1;
 	}
 		
 
-	if(clavier.getHautEnfoncee()){
+	if(clavier.getJoyJ1BasEnfoncee()){
 	    if(!raqG.intersectionRapide(limiteBasse)){
-		//raqG.setA(new Point(raqG.getA().getX(),raqG.getA().getY()-vitesseRaquette));
-		//raqG.setB(new Point(raqG.getB().getX(),raqG.getB().getY()-vitesseRaquette));
 		raqG.translater(0, -vitesseRaquette);
 	    }
 	}
 
-	if(clavier.getBasEnfoncee()){
+	if(clavier.getJoyJ1HautEnfoncee()){
 	    if(!raqG.intersectionRapide(limiteHaute)){
-		//raqG.setA(new Point(raqG.getA().getX(),raqG.getA().getY()+vitesseRaquette));
-		//raqG.setB(new Point(raqG.getB().getX(),raqG.getB().getY()+vitesseRaquette));
 		raqG.translater(0, +vitesseRaquette);
 	    }
 	}
 
-	if(clavier.getOEnfoncee()){
+	if(clavier.getJoyJ2BasEnfoncee()){
 	    if(!raqD.intersectionRapide(limiteBasse)){
-		//raqD.setA(new Point(raqD.getA().getX(),raqD.getA().getY()-vitesseRaquette));
-		//raqD.setB(new Point(raqD.getB().getX(),raqD.getB().getY()-vitesseRaquette));
 		raqD.translater(0, -vitesseRaquette);
 	    }
 	}
 
-	if(clavier.getLEnfoncee()){
+	if(clavier.getJoyJ2HautEnfoncee()){
 	    if(!raqD.intersectionRapide(limiteHaute)){
-		//raqD.setA(new Point(raqD.getA().getX(),raqD.getA().getY()+vitesseRaquette));
-		//raqD.setB(new Point(raqD.getB().getX(),raqD.getB().getY()+vitesseRaquette));
-		//System.out.println(vitesseRaquette);
 		raqD.translater(0, +vitesseRaquette);
 	    }
 	}
 
-	if(clavier.getSTape()){
+	if(clavier.getBoutonJ1ZTape()){
 	    System.exit(5);
 	}
 	    
