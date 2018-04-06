@@ -18,7 +18,7 @@ public class BoiteSelection extends Boite{
 	this.pointeur = pointeur;
     }
 
-    public void selection(Clavier clavier){
+    public void selection(ClavierBorneArcade clavier){
 	Bruitage selection = new Bruitage("sound/bip.mp3");
 	font = null;
 	try{
@@ -28,7 +28,7 @@ public class BoiteSelection extends Boite{
 	}catch (Exception e) {
 	    System.out.println(e.getMessage());
 	}
-	if(clavier.getBasTape() && pointeur.getValue() < Graphique.tableau.length - 1){
+	if(clavier.getJoyJ1HautTape() && pointeur.getValue() < Graphique.tableau.length - 1){
 	    selection.lecture();
 	    for(int i = 0 ; i < Graphique.tableau.length ; i++){
 		Graphique.tableau[i].getTexte().translater(0, -98);
@@ -38,7 +38,7 @@ public class BoiteSelection extends Boite{
 	    pointeur.setValue(pointeur.getValue() + 1);
 			
 	}
-	if(clavier.getHautTape() && pointeur.getValue() > 0){
+	if(clavier.getJoyJ1BasTape() && pointeur.getValue() > 0){
 	    selection.lecture();
 	    for(int i = 0 ; i < Graphique.tableau.length ; i++){
 		Graphique.tableau[i].getTexte().translater(0, 98);
@@ -48,7 +48,7 @@ public class BoiteSelection extends Boite{
 	    pointeur.setValue(pointeur.getValue() - 1);
 			
 	}
-	if(clavier.getDTape()){
+	if(clavier.getBoutonJ1ZTape()){
 	    System.exit(0);
 	}
     }

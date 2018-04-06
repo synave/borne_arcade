@@ -19,8 +19,8 @@ public class Pointeur {
 	this.value = Graphique.tableau.length-1;
     }
 
-    public void lancerJeu(Clavier clavier){
-	if(clavier.getATape()){
+    public void lancerJeu(ClavierBorneArcade clavier){
+	if(clavier.getBoutonJ1ATape()){
 
 	    //System.out.println(Graphique.tableau[getValue()].getChemin());
 	    try {

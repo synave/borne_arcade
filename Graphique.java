@@ -17,7 +17,7 @@ public class Graphique {
     private int TAILLEX;
     private int TAILLEY;
     private int i;
-    private Clavier clavier;
+    private ClavierBorneArcade clavier;
     private BoiteSelection bs;
     private BoiteImage bi;
     private BoiteDescription bd;
@@ -45,7 +45,8 @@ public class Graphique {
 	f = new Fenetre("_Menu Borne D'arcade_",TAILLEX,TAILLEY);
 	//f = new FenetrePleinEcran("_Menu Borne D'arcade_");
 	f.setVisible(true);
-	clavier = f.getClavier();
+	clavier = new ClavierBorneArcade();
+	f.addKeyListener(clavier);
 	tableau = new Bouton[5];
 	Bouton.remplirBouton();
 	pointeur = new Pointeur();
