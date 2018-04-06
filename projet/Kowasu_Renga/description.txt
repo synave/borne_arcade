@@ -1,7 +1,7 @@
-Auteur : ???
+Auteur : Équipe MG2D
 Année : 2017
-Type : Casse Brique
-Description :   Ligne 1
-		Ligne 2
-		Ligne 3
-		Ligne 4
+Type : Casse brique
+
+Jeu faisant partie des démos de la
+bibliothèque MG2D. Jeu classique de
+casse brique.

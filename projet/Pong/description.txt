@@ -1,1 +1,9 @@
-Pong Game
+Auteur : Rémi Synave
+Année : 2013
+Type : Pong
+
+Premier jeu programmé grâce à la bibliothèque
+MG2D pour illustrer toute la puissance de
+celle-ci. Jeu particulièrement bien codé avec une
+musique entraînante.
+

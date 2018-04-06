@@ -1,7 +1,10 @@
 Auteur : Nicolas Choquet
 Année : 2017
-Type : Jeu : Shoot'em Up (Star Wars)
-Description :   Ligne 1
-		Ligne 2
-		Ligne 3
-		Ligne 4
+Type : Jeu : Shoot'em Up
+
+Revivez les aventures du jeune Luke Skywalker
+en approche de l'étoile de la mort. Défoncez
+vos adversaires pour enfin détruire l'arme ultime.
+(Le passage de l'étoile de la mort n'a pas été codé
+alors, on fait comme ci elle se trouve très
+très loin. OK ?)
