@@ -1,1 +1,1 @@
-rien:rien:rien:rien:rien:rien:rien
+Déplacement barre:rien:rien:Quitter:Lancer la balle:rien:rien

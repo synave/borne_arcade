@@ -1,1 +1,1 @@
-Mouvement barre:Lancer la balle:aucun:aucun:aucun:aucun:aucun
+Mouvement barre:aucune:aucun:Quitter:Lancer la balle:aucun:aucun
