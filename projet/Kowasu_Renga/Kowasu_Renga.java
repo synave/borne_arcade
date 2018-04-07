@@ -155,17 +155,17 @@ public class Kowasu_Renga {
 	    }
 		
 	    //tape sur la limite droite
-	    if ( balle.getO().getX() - 10 == 0 )
+	    if ( balle.getO().getX() - 10 <= 0 )
 		dx = 1;
 			
-	    if ( balle.getO().getY() + 10 == hauteur )
+	    if ( balle.getO().getY() + 10 >= hauteur )
 		dy = -1;
 			
 	    //tape sur la limite gauche
-	    if ( balle.getO().getX() + 10 == largeur )
+	    if ( balle.getO().getX() + 10 >= largeur )
 		dx = -1;
 			
-	    if ( balle.getO().getY()  == 0 ) {		// La balle est perdue, on reset les paramètres //
+	    if ( balle.getO().getY()  <= 0 ) {		// La balle est perdue, on reset les paramètres //
 			
 		dx = 0;
 		dy = 0;
