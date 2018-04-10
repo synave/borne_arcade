@@ -18,7 +18,7 @@ public class BoiteSelection extends Boite{
 	this.pointeur = pointeur;
     }
 
-    public void selection(ClavierBorneArcade clavier){
+    public boolean selection(ClavierBorneArcade clavier){
 	Bruitage selection = new Bruitage("sound/bip.mp3");
 	font = null;
 	try{
@@ -49,8 +49,9 @@ public class BoiteSelection extends Boite{
 			
 	}
 	if(clavier.getBoutonJ1ZTape()){
-	    System.exit(0);
+	    return false;
 	}
+	return true;
     }
 
     public Pointeur getPointeur() {

@@ -91,55 +91,109 @@ public class Graphique {
 
     public void selectionJeu(){
 		
-	bs.selection(clavier);
+	if(bs.selection(clavier)){
+	    
+	    bi.setImage(tableau[pointeur.getValue()].getChemin());
 
-	bi.setImage(tableau[pointeur.getValue()].getChemin());
-
-	fontSelect = null;
-	try{
-	    File in = new File("fonts/font.ttf");
-	    fontSelect = fontSelect.createFont(Font.TRUETYPE_FONT, in);
-	    fontSelect = fontSelect.deriveFont(48.0f);
-	}catch (Exception e) {
-	    System.err.println(e.getMessage());
-	}
-
-	if(!tableau[pointeur.getValue()].getTexte().getPolice().equals(fontSelect)){
-	    tableau[pointeur.getValue()].getTexte().setPolice(fontSelect);
-	}
-		
-			
-		
-	//clignotement texte selectionne
-		
-		
-			
-	i=0;
-	while(i<1){
-	    try {
-		Thread.sleep(100);
-		f.supprimer(tableau[pointeur.getValue()].getTexte());
-
-		Thread.sleep(250);
-		f.ajouter(tableau[pointeur.getValue()].getTexte());
-
-	    }
-	    catch (Exception e) {
+	    fontSelect = null;
+	    try{
+		File in = new File("fonts/font.ttf");
+		fontSelect = fontSelect.createFont(Font.TRUETYPE_FONT, in);
+		fontSelect = fontSelect.deriveFont(48.0f);
+	    }catch (Exception e) {
 		System.err.println(e.getMessage());
 	    }
-	    i++;
+
+	    if(!tableau[pointeur.getValue()].getTexte().getPolice().equals(fontSelect)){
+		tableau[pointeur.getValue()].getTexte().setPolice(fontSelect);
+	    }
+		
+			
+		
+	    //clignotement texte selectionne
+		
+		
+			
+	    i=0;
+	    while(i<1){
+		try {
+		    Thread.sleep(100);
+		    f.supprimer(tableau[pointeur.getValue()].getTexte());
+
+		    Thread.sleep(250);
+		    f.ajouter(tableau[pointeur.getValue()].getTexte());
+
+		}
+		catch (Exception e) {
+		    System.err.println(e.getMessage());
+		}
+		i++;
+	    }
+		
+
+	    tableau[pointeur.getValue()].getTexte().setPolice(font);
+
+	    bd.lireFichier(tableau[pointeur.getValue()].getChemin());
+	    bd.lireBouton(tableau[pointeur.getValue()].getChemin());
+	    //System.out.println(tableau[pointeur.getValue()].getChemin());
+	    //bd.setMessage(tableau[pointeur.getValue()].getNom());
+		
+	    pointeur.lancerJeu(clavier);
+
+	    f.rafraichir();
+	}else{
+	    Texture fondBlancTransparent = new Texture("./img/blancTransparent.png", new Point(0,0));
+	    Rectangle boutonNon = new Rectangle(Couleur.ROUGE, new Point(340, 600), 200, 100, true);
+	    Rectangle boutonOui = new Rectangle(Couleur.VERT, new Point(740, 600), 200, 100, true);
+	    Texte message = new Texte(Couleur.NOIR, "Voulez vous vraiment quitter ?", new Font("Calibri", Font.TYPE1_FONT, 40), new Point(640, 800));
+	    Texte non = new Texte(Couleur.NOIR, "NON", new Font("Calibri", Font.TYPE1_FONT, 20), new Point(440, 650));
+	    Texte oui = new Texte(Couleur.NOIR, "OUI", new Font("Calibri", Font.TYPE1_FONT, 20), new Point(840, 650));
+	    Rectangle rectSelection = new Rectangle(Couleur.BLEU, new Point(330,590),220,120, true);
+	    f.ajouter(fondBlancTransparent);
+	    f.ajouter(message);
+	    f.ajouter(rectSelection);
+	    f.ajouter(boutonNon);
+	    f.ajouter(boutonOui);
+	    f.ajouter(non);
+	    f.ajouter(oui);
+	    int selectionSur = 0;
+	    
+	    boolean sortie=false;
+	    while(!sortie){
+		try{
+		    Thread.sleep(10);
+		}catch(Exception e){}
+		if(clavier.getJoyJ1DroiteEnfoncee())
+		    selectionSur=1;
+		if(clavier.getJoyJ1GaucheEnfoncee())
+		    selectionSur=0;
+		
+		if(selectionSur==0){
+		    rectSelection.setA(new Point(330,590));
+		    rectSelection.setB(new Point(550,710));
+		}
+		else{
+		    rectSelection.setB(new Point(950,710));
+		    rectSelection.setA(new Point(730,590));
+		    
+		}
+		if(clavier.getBoutonJ1ATape()){
+		    if(selectionSur==0){
+			f.supprimer(fondBlancTransparent);
+			f.supprimer(message);
+			f.supprimer(rectSelection);
+			f.supprimer(boutonNon);
+			f.supprimer(boutonOui);
+			f.supprimer(non);
+			f.supprimer(oui);
+			sortie=true;
+		    }
+		    else{
+			System.exit(0);
+		    }
+		}
+		f.rafraichir();
+	    }
 	}
-		
-
-	tableau[pointeur.getValue()].getTexte().setPolice(font);
-
-	bd.lireFichier(tableau[pointeur.getValue()].getChemin());
-	bd.lireBouton(tableau[pointeur.getValue()].getChemin());
-	//System.out.println(tableau[pointeur.getValue()].getChemin());
-	//bd.setMessage(tableau[pointeur.getValue()].getNom());
-		
-	pointeur.lancerJeu(clavier);
-
-	f.rafraichir();
     }
 }
