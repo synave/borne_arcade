@@ -63,6 +63,7 @@ class Jeu{
 
 	cla = new ClavierBorneArcade();
 	fen.addKeyListener(cla);
+	fen.getP().addKeyListener(cla);
 	
 	fen.setVisible(true);
     

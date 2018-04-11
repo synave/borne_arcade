@@ -52,6 +52,7 @@ public class Snake_Eater {
 	f.setVisible(true);
   	clavier = new ClavierBorneArcade();
   	f.addKeyListener ( clavier );
+	f.getP().addKeyListener ( clavier );
   	
   	f.setBackground ( Couleur.NOIR );
   	f.ajouter ( background );

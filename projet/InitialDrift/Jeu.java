@@ -83,6 +83,7 @@ class Jeu{ // Définition de la classe
 	clavier = new ClavierBorneArcade();
 
 	fen.addKeyListener(clavier);
+	fen.getP().addKeyListener(clavier);
 	//clavier = fen.getClavier();
 
 	

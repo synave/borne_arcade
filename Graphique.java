@@ -47,6 +47,7 @@ public class Graphique {
 	f.setVisible(true);
 	clavier = new ClavierBorneArcade();
 	f.addKeyListener(clavier);
+	f.getP().addKeyListener(clavier);
 	tableau = new Bouton[5];
 	Bouton.remplirBouton();
 	pointeur = new Pointeur();

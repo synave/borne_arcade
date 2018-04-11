@@ -11,3 +11,10 @@ echo "Veuillez patienter"
 
 java -cp .:/home/pi/git/MG2D Main
 
+for i in {30..1}
+do
+    echo Extinction de la borne dans $i secondes
+    sleep 1
+done
+
+sudo halt

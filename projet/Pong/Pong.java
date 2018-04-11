@@ -72,6 +72,7 @@ public class Pong {
 
 	clavier = new ClavierBorneArcade();
 	f.addKeyListener(clavier);
+	f.getP().addKeyListener(clavier);
 	       
 	f.ajouter ( new Rectangle(Couleur.NOIR, new Point(0,0), new Point(largeur, hauteur), true) );
 

@@ -49,6 +49,7 @@ public class Kowasu_Renga {
 	
 	clavier = new ClavierBorneArcade();
 	f.addKeyListener(clavier);
+	f.getP().addKeyListener(clavier);
 	
 	
 	
