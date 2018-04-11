@@ -19,6 +19,7 @@ public class BoiteDescription extends Boite{
     private Texte tJoystick;
     private Texte[] tBouton;
     private String[] texteBouton;
+    private Texte highscore;
 	
     BoiteDescription(Rectangle rectangle) {
 	super(rectangle);
@@ -27,29 +28,31 @@ public class BoiteDescription extends Boite{
 	texteBouton = new String[7];
 		
 	//declaration des texture bouton + joystick
-	this.joystick = new Texture("img/joystick.png", new Point(740, 120), 40,40);
+	this.joystick = new Texture("img/joystick.png", new Point(740, 100), 40,40);
 	for(int i = 0 ; i < 3 ; i++){
-	    this.bouton[i] = new Texture("img/ibouton.png", new Point(890+130*i, 150), 40, 40);
+	    this.bouton[i] = new Texture("img/ibouton.png", new Point(890+130*i, 130), 40, 40);
 	}
 	for(int i = 3 ; i < 6 ; i++){
-	    this.bouton[i] = new Texture("img/ibouton.png", new Point(890+130*(i-3), 70), 40, 40);
+	    this.bouton[i] = new Texture("img/ibouton.png", new Point(890+130*(i-3), 50), 40, 40);
 	}
 	//declaration des textes bouton + joystick
-	this.tJoystick = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(760, 100));
+	this.tJoystick = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(760, 80));
 	for(int i = 0 ; i < 3 ; i++){
-	    this.tBouton[i] = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(910+130*i, 140));
+	    this.tBouton[i] = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(910+130*i, 120));
 	}
 	for(int i = 3 ; i < 6 ; i++){
-	    this.tBouton[i] = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(910+130*(i-3), 60));
+	    this.tBouton[i] = new Texte(Couleur .NOIR, "...", new Font("Calibri", Font.TYPE1_FONT, 15), new Point(910+130*(i-3), 40));
 	}
 	stop = false;
 	message = new Texte[10];
 	for(int i = 0 ; i < message.length ; i++){
-	    message[i] = new Texte(Couleur .NOIR, "", new Font("Calibri", Font.TYPE1_FONT, 20), new Point(950, 500));
+	    message[i] = new Texte(Couleur .NOIR, "", new Font("Calibri", Font.TYPE1_FONT, 20), new Point(960, 590));
 	    message[i].translater(0, -i*30);
 
 	}
 	nombreLigne = 0;
+
+	highscore = new Texte(Couleur.NOIR, "HIGHSCORE", new Font("Calibri", Font.TYPE1_FONT, 25), new Point(960, 335));
     }
 	
     public void lireFichier(String path){
@@ -137,6 +140,10 @@ public class BoiteDescription extends Boite{
 	
     public Texte gettJoystick(){
 	return this.tJoystick;
+    }
+
+    public Texte getHighscore(){
+	return this.highscore;
     }
 	
     public void settJoystick(String s){

@@ -1,6 +1,4 @@
-Auteur : Nicolas Choquet
-Année : 2017
-Type : Jeu : Shoot'em Up
+Shoot'em up - Nicolas Choquet - 2017
 
 Revivez les aventures du jeune Luke Skywalker
 en approche de l'étoile de la mort. Défoncez

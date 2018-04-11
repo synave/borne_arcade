@@ -88,6 +88,9 @@ public class Graphique {
 	    f.ajouter(bd.gettBouton()[i]);
 	}
 	f.ajouter(bd.gettJoystick());
+	f.ajouter(new Ligne(Couleur.NOIR,new Point(670,360), new Point(1250,360)));
+	f.ajouter(new Ligne(Couleur.NOIR,new Point(670,190), new Point(1250,190)));
+	f.ajouter(bd.getHighscore());
     }
 
     public void selectionJeu(){

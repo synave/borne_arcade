@@ -1,6 +1,4 @@
-Auteur : Loan Caecke
-Année : 2017
-Type : Jeu de Voiture (Tuning)
+Jeu de voiture - Loan Caecke - 2017
 
 Roulez le plus loin possible en évitant
 les voitures arrivant en sens inverse,

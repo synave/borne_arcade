@@ -1,6 +1,4 @@
-Auteur : Équipe MG2D
-Année : 2017
-Type : Casse brique
+Casse brique - Équipe MG2D - 2013
 
 Jeu faisant partie des démos de la
 bibliothèque MG2D. Jeu classique de

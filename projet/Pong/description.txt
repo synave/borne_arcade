@@ -1,6 +1,4 @@
-Auteur : Rémi Synave
-Année : 2013
-Type : Pong
+Pong - Rémi Synave - 2013
 
 Premier jeu programmé grâce à la bibliothèque
 MG2D pour illustrer toute la puissance de
